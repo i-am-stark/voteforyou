@@ -2,17 +2,31 @@ import 'regenerator-runtime/runtime'
 import React from 'react'
 import { login, logout } from './utils'
 import './global.css'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { BrowserRouter as Router,  Routes,  Route,} from "react-router-dom";
+
+//Components
 import Home from './Components/Home'
 import NewPoll from './Components/NewPoll'
 import PollingStation from './Components/PollingStation'
 
 import getConfig from './config'
+import { async } from 'regenerator-runtime/runtime';
 const { networkId } = getConfig(process.env.NODE_ENV || 'development')
 
 export default function App() {
+
+  const changeCandidatesFunction = async (prompt) => {
+    console.log(prompt);
+    let namePair = await window.contract.getCandidatePair({ prompt: prompt });
+    localStorage.setItem("Candidate1", namePair[0]);
+    localStorage.setItem("Candidate2", namePair[1]);
+    localStorage.setItem("prompt", prompt);
+    window.location.replace(window.location.href + "PollingStation");
+  };
+
   return(
     <Router>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -30,7 +44,7 @@ export default function App() {
       </Navbar>
       
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home changeCandidates={changeCandidatesFunction}/>} />
         <Route path="/NewPoll" element={<NewPoll />} />
         <Route path="/PollingStation" element={<PollingStation />} />
      </Routes>

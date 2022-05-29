@@ -79,8 +79,7 @@ const NewPoll = (props) => {
       <Button
         disabled={disableButton}
         onClick={sendToBlockChain}
-        variant='primary'
-      >
+        variant='primary'>
         Submit
       </Button>
     </Container>

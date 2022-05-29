@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+
+//Images
 import LoadingCircles from "../assets/loadingcircles.svg";
 
 const PollingStation = (props) => {

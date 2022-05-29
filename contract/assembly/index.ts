@@ -1,16 +1,10 @@
 import {  logging, PersistentMap} from 'near-sdk-as'
 
-
 const CandidateURL=new PersistentMap<string,string>("CandidateURL");
 const CandidatePair=new PersistentMap<string,string[]>("Candidate Pair");
 const PromptArray= new PersistentMap<string,string[]>("array of prompts ");
 const VoteArray=new PersistentMap<string,i32[]>("stores votes ");
 const userParticipation = new PersistentMap<string,string[]>('user Participation Record')
-
-
-
-
-
 
 // View Methods
 // Does not change state of the blockchain 
@@ -44,8 +38,6 @@ export function getAllPrompts():string[]{
     return []
   }
 }
-
-
 
 export function getVotes(prompt:string):i32[]{
   if(VoteArray.contains(prompt)){
@@ -97,7 +89,6 @@ export function clearPromptArray():void{
   PromptArray.delete("AllArrays")
 }
 
-
 export function addVote(prompt:string,index:i32):void{
   if(VoteArray.contains(prompt)){
     let tempArray=VoteArray.getSome(prompt)
@@ -121,5 +112,3 @@ export function recordUser(prompt:string,user:string):void{
     userParticipation.set(prompt,[user]);
   }
 }
-
-
