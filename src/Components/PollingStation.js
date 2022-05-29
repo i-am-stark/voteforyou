@@ -5,13 +5,15 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import LoadingCircles from "../assets/loadingcircles.svg";
 
 const PollingStation = (props) => {
-  const [candidate1URL, changeCandidate1Url] = useState("https://www.kindpng.com/picc/m/247-2478665_bjp-logo-png-photo-bharatiya-janata-party-transparent.png");
+  const [candidate1URL, changeCandidate1Url] = useState(LoadingCircles);
   const [candidate2URL, changeCandidate2Url] = useState(LoadingCircles);
   const [showresults, changeResultsDisplay] = useState(false);
   const [buttonStatus, changeButtonStatus] = useState(false);
   const [candidate1Votes, changeVote1] = useState("--");
   const [candidate2Votes, changeVote2] = useState("--");
   const [prompt, changePrompt] = useState("--");
+  const [name1, changeName1] = useState("--");
+  const [name2, changeName2] = useState("--");
 
   useEffect(() => {
     const getInfo = async () => {
@@ -36,6 +38,10 @@ const PollingStation = (props) => {
       );
 
       changePrompt(localStorage.getItem("prompt"));
+
+      changeName1(localStorage.getItem("Candidate1"));
+
+      changeName2(localStorage.getItem("Candidate2"));
 
       // vote checking stuff
 
@@ -76,12 +82,12 @@ const PollingStation = (props) => {
       <Row>
         <Col className='jutify-content-center d-flex'>
           <Container>
-            <Row style={{ marginTop: "5vh", backgroundColor: "#c4c4c4" }}>
+            <Row style={{ marginTop: "10vh", backgroundColor: "#E0EEEE" }}>
               <div
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  padding: "3vw",
+                  padding: "2vw",
                 }}
               >
                 <img
@@ -90,8 +96,9 @@ const PollingStation = (props) => {
                     width: "20vw",
                   }}
                   src={candidate1URL}
-                ></img>
+                ></img>                
               </div>
+              <div align="center"><h5>{name1}</h5></div>
             </Row>
             {showresults ? (
               <Row
@@ -102,9 +109,8 @@ const PollingStation = (props) => {
                   style={{
                     display: "flex",
                     justifyContent: "center",
-                    fontSize: "8vw",
-                    padding: "10px",
-                    backgroundColor: "#c4c4c4",
+                    fontSize: "4vw",
+                    backgroundColor: "#E0EEEE",
                   }}
                 >
                   {candidate1Votes}
@@ -126,24 +132,25 @@ const PollingStation = (props) => {
             style={{
               display: "flex",
               justifyContent: "center",
-              backgroundColor: "#c4c4c4",
+              backgroundColor: "#E0EEEE",
               height: "20vh",
               alignItems: "center",
-              padding: "2vw",
+              padding: "1vw",
+              fontSize: "3vh",
               textAlign: "center",
             }}
           >
-            {prompt}
+            <h5>{prompt}</h5>
           </div>
         </Col>
         <Col className='jutify-content-center d-flex'>
           <Container>
-            <Row style={{ marginTop: "5vh", backgroundColor: "#c4c4c4" }}>
+            <Row style={{ marginTop: "10vh", backgroundColor: "#E0EEEE" }}>
               <div
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  padding: "3vw",
+                  padding: "2vw",
                 }}
               >
                 <img
@@ -154,6 +161,7 @@ const PollingStation = (props) => {
                   src={candidate2URL}
                 ></img>
               </div>
+              <div align="center"><h5>{name2}</h5></div>
             </Row>
             {showresults ? (
               <Row
@@ -161,13 +169,12 @@ const PollingStation = (props) => {
                 style={{ marginTop: "5vh" }}
               >
                 <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    fontSize: "8vw",
-                    padding: "10px",
-                    backgroundColor: "#c4c4c4",
-                  }}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      fontSize: "4vw",
+                      backgroundColor: "#E0EEEE",
+                    }}
                 >
                   {candidate2Votes}
                 </div>

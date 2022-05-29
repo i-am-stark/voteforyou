@@ -15,6 +15,18 @@ const Home = (props) => {
 
   return (
     <Container>
+      <br/>
+      <div style={{ backgroundColor:'#E0EEEE', padding:"25px"}}>
+        <h3>
+          Welcome to VoteForYou.
+        </h3>
+        <p>
+          Here you can create new Polls and also participate in polls created by other users.<br/>
+          All you need is a NEAR Testnet wallet account. You have to login to your NEAR Testnet
+           wallet in order to create new polls and participate in other Polls. 
+        </p>
+      </div>
+    <div>
       <Table style={{ margin: "5vh" }} striped bordered hover>
         <thead>
           <tr>
@@ -40,6 +52,7 @@ const Home = (props) => {
           })}
         </tbody>
       </Table>
+    </div>
     </Container>
   );
 };
