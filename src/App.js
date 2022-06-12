@@ -6,7 +6,6 @@ import './global.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { BrowserRouter as Router,  Routes,  Route,} from "react-router-dom";
-import ReactDOM from 'react-dom';
 import { SocialIcon } from 'react-social-icons';
 
 
@@ -62,6 +61,8 @@ export default function App() {
         <Route path="/NewPoll" element={<NewPoll />} />
         <Route path="/PollingStation" element={<PollingStation />} />
      </Routes>
+
+     
     <div style={{paddingTop:"100px"}}>
      <Navbar style={{backgroundColor:"#E0EEEE"}} variant="light">
         <Container >

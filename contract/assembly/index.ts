@@ -20,6 +20,7 @@ export function getUrl(name:string):string{
   }
 }
 
+
 export function didParticipate(prompt:string, user:string):bool{
   if(userParticipation.contains(prompt)){
     let getArray=userParticipation.getSome(prompt);

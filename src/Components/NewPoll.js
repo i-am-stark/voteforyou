@@ -32,11 +32,15 @@ const NewPoll = (props) => {
 
     await window.contract.addToPromptArray({ prompt: promptRef.current.value });
 
-    alert("head back to home page");
+    alert("You can go back to Home Page");
   };
 
   return (
-    <Container style={{ marginTop: "10px" }}>
+    <Container>
+      <div style={{ marginTop: "30px", backgroundColor:"#E0EEEE", padding :"2px"}}>
+      <h5>Create a New Poll</h5>
+    </div>
+    <Container style={{ marginTop: "20px" }}>
       <Form>
         <Form.Group className='mb-3'>
           <Form.Label>Candidiate 1 Name</Form.Label>
@@ -50,7 +54,7 @@ const NewPoll = (props) => {
           <Form.Label>Candidate 1 Image URL</Form.Label>
           <Form.Control
             ref={candidateName1URL}
-            placeholder='enter Image URL'
+            placeholder='Enter Image URL'
           ></Form.Control>
         </Form.Group>
 
@@ -66,13 +70,13 @@ const NewPoll = (props) => {
           <Form.Label>Candidate 2 Image URL</Form.Label>
           <Form.Control
             ref={candidateName2URL}
-            placeholder='enter Image URL'
+            placeholder='Enter Image URL'
           ></Form.Control>
         </Form.Group>
 
         <Form.Group className='mb-3'>
-          <Form.Label>Prompt</Form.Label>
-          <Form.Control ref={promptRef} placeholder='Add Prompt'></Form.Control>
+          <Form.Label>Voting Issue</Form.Label>
+          <Form.Control ref={promptRef} placeholder='What is the Election about?'></Form.Control>
         </Form.Group>
       </Form>
 
@@ -82,6 +86,7 @@ const NewPoll = (props) => {
         variant='primary'>
         Submit
       </Button>
+    </Container>
     </Container>
   );
 };
