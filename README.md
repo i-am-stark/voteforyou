@@ -1,6 +1,6 @@
 # VoteForYou - A Blockchain Based E-Voting Application
 
-This application was created using React-Bootstrap and NodeJs. 
+This application was created using React-Bootstrap and NodeJs. The Project Report is included in the base directory.
 
 
 ## Quick Start
